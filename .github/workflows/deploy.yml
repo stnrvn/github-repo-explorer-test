@@ -16,20 +16,30 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
           
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install Yarn
+        run: npm install -g yarn
+          
+      - name: Clean Install Dependencies
+        run: |
+          rm -f yarn.lock
+          yarn install
         
-      - name: Build
+      - name: Build Production
         env:
           VITE_GITHUB_API_TOKEN: ${{ secrets.VITE_GITHUB_API_TOKEN }}
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
           VITE_NODE_ENV: production
-        run: yarn build
+          NODE_ENV: production
+        run: |
+          yarn build
+          # Tambahkan file .nojekyll untuk mencegah GitHub Pages menggunakan Jekyll
+          touch dist/.nojekyll
         
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist 
+          publish_dir: ./dist
+          # Pastikan file .nojekyll ikut terdeploy
+          enable_jekyll: false 

@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/atask/', // Sesuaikan dengan nama repository Anda
+  base: '/github-repo-explorer-test/', // Repository name
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

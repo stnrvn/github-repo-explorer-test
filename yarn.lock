@@ -655,7 +655,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^3.0.7":
+"@cypress/request@npm:^3.0.6":
   version: 3.0.8
   resolution: "@cypress/request@npm:3.0.8"
   dependencies:
@@ -1881,15 +1881,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cypress@npm:^1.1.6":
-  version: 1.1.6
-  resolution: "@types/cypress@npm:1.1.6"
-  dependencies:
-    cypress: "*"
-  checksum: 8b9243b093ede3edc8eeeb99fa89b8b778bdeca5194707f320ebbd939f27d9b61153dc4cc63cf70e59d1e0d6ef6e21696bb66e47eb4391e936d4fe86173a32eb
-  languageName: node
-  linkType: hard
-
 "@types/estree@npm:1.0.6":
   version: 1.0.6
   resolution: "@types/estree@npm:1.0.6"
@@ -3012,7 +3003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ci-info@npm:^4.1.0":
+"ci-info@npm:^4.0.0":
   version: 4.1.0
   resolution: "ci-info@npm:4.1.0"
   checksum: dcf286abdc1bb1c4218b91e4a617b49781b282282089b7188e1417397ea00c6b967848e2360fb9a6b10021bf18a627f20ef698f47c2c9c875aeffd1d2ea51d1e
@@ -3331,11 +3322,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:*, cypress@npm:^14.1.0":
-  version: 14.1.0
-  resolution: "cypress@npm:14.1.0"
+"cypress@npm:^13.6.6":
+  version: 13.17.0
+  resolution: "cypress@npm:13.17.0"
   dependencies:
-    "@cypress/request": ^3.0.7
+    "@cypress/request": ^3.0.6
     "@cypress/xvfb": ^1.2.4
     "@types/sinonjs__fake-timers": 8.1.1
     "@types/sizzle": ^2.3.2
@@ -3346,7 +3337,7 @@ __metadata:
     cachedir: ^2.3.0
     chalk: ^4.1.0
     check-more-types: ^2.24.0
-    ci-info: ^4.1.0
+    ci-info: ^4.0.0
     cli-cursor: ^3.1.0
     cli-table3: ~0.6.1
     commander: ^6.2.1
@@ -3380,7 +3371,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: bb0c2897ed2709b90aebea81879dc77dd58283ffc9ad2a8f0c105b14c41ee6dd2eab8ca34793daea991e7e26171aec20221202af6ccb277d54ad3a30aa774f8c
+  checksum: c1d87358e8b92e19e3bf5246a8787dcdd5083e27fa7b816d26c28b4678ecd87b5b3b8661fb812bc993845ca30a482d3f18837af1ac6d9e142e41049dccbc51e0
   languageName: node
   linkType: hard
 
@@ -4089,7 +4080,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.56.0":
+"eslint@npm:^8.57.0":
   version: 8.57.1
   resolution: "eslint@npm:8.57.1"
   dependencies:
@@ -4708,7 +4699,6 @@ __metadata:
     "@testing-library/jest-dom": latest
     "@testing-library/react": latest
     "@testing-library/user-event": ^14.6.1
-    "@types/cypress": ^1.1.6
     "@types/jest": ^29.5.14
     "@types/react": ^18.2.56
     "@types/react-dom": ^18.2.19
@@ -4718,8 +4708,8 @@ __metadata:
     autoprefixer: ^10.4.17
     axios: ^1.6.7
     clsx: ^2.1.1
-    cypress: ^14.1.0
-    eslint: ^8.56.0
+    cypress: ^13.6.6
+    eslint: ^8.57.0
     eslint-config-prettier: ^9.1.0
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
@@ -4727,7 +4717,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
-    msw: latest
+    msw: ^2.2.2
     postcss: ^8.4.35
     prettier: ^3.2.5
     react: ^18.2.0
@@ -4739,7 +4729,6 @@ __metadata:
     ts-jest: ^29.2.6
     typescript: ^5.2.2
     vite: ^5.1.4
-    whatwg-fetch: ^3.6.20
   languageName: unknown
   linkType: soft
 
@@ -6806,7 +6795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:latest":
+"msw@npm:^2.2.2":
   version: 2.7.3
   resolution: "msw@npm:2.7.3"
   dependencies:
@@ -9184,13 +9173,6 @@ __metadata:
   dependencies:
     iconv-lite: 0.6.3
   checksum: 7087810c410aa9b689cbd6af8773341a53cdc1f3aae2a882c163bd5522ec8ca4cdfc269aef417a5792f411807d5d77d50df4c24e3abb00bb60192858a40cc675
-  languageName: node
-  linkType: hard
-
-"whatwg-fetch@npm:^3.6.20":
-  version: 3.6.20
-  resolution: "whatwg-fetch@npm:3.6.20"
-  checksum: c58851ea2c4efe5c2235f13450f426824cf0253c1d45da28f45900290ae602a20aff2ab43346f16ec58917d5562e159cd691efa368354b2e82918c2146a519c5
   languageName: node
   linkType: hard
 
