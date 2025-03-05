@@ -5,7 +5,6 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-# Add permissions
 permissions:
   contents: write
   pages: write
@@ -39,7 +38,6 @@ jobs:
           NODE_ENV: production
         run: |
           yarn build
-          # Tambahkan file .nojekyll untuk mencegah GitHub Pages menggunakan Jekyll
           touch dist/.nojekyll
         
       - name: Deploy to GitHub Pages
@@ -47,5 +45,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          # Pastikan file .nojekyll ikut terdeploy
-          enable_jekyll: false 
+          enable_jekyll: false
+          allow_empty_commit: true
+          force_orphan: true
