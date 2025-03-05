@@ -11,7 +11,7 @@ function AppContent() {
   const selectedUser = useSelector(selectSelectedUser);
 
   return (
-    <div className="fixed inset-0 flex flex-col bg-gray-900">
+    <div className="fixed inset-0 flex flex-col bg-gray-900 overflow-auto">
       <header className="flex-none bg-gray-800 shadow">
         <div className="px-4 py-4">
           <h1 className="text-2xl sm:text-3xl font-bold text-white">
@@ -21,7 +21,7 @@ function AppContent() {
       </header>
 
       {selectedUser ? (
-        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        <div className="flex-1 flex flex-col lg:flex-row">
           <aside className="w-full lg:w-80 flex-none bg-gray-900 border-b lg:border-b-0 lg:border-r border-gray-800">
             <div className="p-4">
               <ErrorBoundary>
@@ -34,7 +34,7 @@ function AppContent() {
               </ErrorBoundary>
             </div>
           </aside>
-          <main className="flex-1 bg-gray-900 overflow-auto">
+          <main className="flex-1 bg-gray-900">
             <div className="p-4">
               <ErrorBoundary>
                 <RepositoryList />
