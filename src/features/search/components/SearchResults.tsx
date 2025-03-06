@@ -39,27 +39,36 @@ export const SearchResults = () => {
 
   return (
     <div className="mt-4">
-      <div className="bg-gray-900 rounded-lg divide-y divide-gray-700/50">
-        {users.map((user: GitHubUser) => (
-          <button
-            key={user.id}
-            className={`w-full flex items-center p-4 transition-colors text-left focus:outline-none focus:ring-0 focus-visible:ring-0 focus:border-0 hover:border-0 border-0 ring-0 ${
-              selectedUser?.id === user.id ? 'bg-gray-800' : 'bg-gray-800/50'
-            } hover:bg-gray-800`}
-            onClick={() => dispatch(selectUser(user))}
-          >
-            <img
-              src={user.avatar_url}
-              alt={`${user.login}'s avatar`}
-              className="h-10 w-10 rounded-full"
-            />
-            <div className="ml-4">
-              <div className="font-medium text-white">{user.login}</div>
-              <div className="text-sm text-gray-400">View repositories</div>
-            </div>
-          </button>
-        ))}
+      <div className="bg-gray-900 divide-y divide-gray-700/50">
+        {users.map((user: GitHubUser, index: number) => {
+          const isFirst = index === 0;
+          const isLast = index === users.length - 1;
+          const roundedClass = isFirst
+            ? 'rounded-t-lg'
+            : isLast
+            ? 'rounded-b-lg'
+            : '';
+          return (
+            <button
+              key={user.id}
+              className={`w-full flex items-center p-4 transition-colors text-left focus:outline-none focus:ring-0 focus-visible:ring-0 focus:border-0 hover:border-0 border-0 ring-0 rounded-none ${roundedClass} ${
+                selectedUser?.id === user.id ? 'bg-gray-800' : 'bg-gray-800/50'
+              } hover:bg-gray-800`}
+              onClick={() => dispatch(selectUser(user))}
+            >
+              <img
+                src={user.avatar_url}
+                alt={`${user.login}'s avatar`}
+                className="h-10 w-10 rounded-full"
+              />
+              <div className="ml-4">
+                <div className="font-medium text-white">{user.login}</div>
+                <div className="text-sm text-gray-400">View repositories</div>
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
-}; 
+};
