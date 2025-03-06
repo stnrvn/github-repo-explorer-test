@@ -20,7 +20,7 @@ A modern React application that enables users to search for GitHub users and exp
 - **Build Tool**: Vite for fast development and optimized production builds
 - **State Management**: Redux Toolkit with Redux Saga for complex state flows
 - **Styling**: Tailwind CSS for utility-first styling
-- **Testing**: Jest and React Testing Library for unit tests, Cypress for E2E testing
+- **Testing**: Jest and React Testing Library for unit tests
 - **API Integration**: GitHub REST API via Octokit
 - **Code Quality**: ESLint and Prettier for consistent code style
 
@@ -88,40 +88,12 @@ The application will be available at `http://localhost:5173`
 - `yarn test:watch` - Run tests in watch mode
 - `yarn test:coverage` - Generate test coverage report
 
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a new branch for your feature:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes
-4. Write or update tests as needed
-5. Run tests and ensure all pass:
-   ```bash
-   yarn test
-   yarn cypress:run
-   ```
-6. Commit your changes following conventional commits:
-   ```bash
-   git commit -m "feat: add new feature"
-   ```
-7. Push to your fork and submit a pull request
-
 ### Code Style Guidelines
 
 - Follow the ESLint and Prettier configurations
 - Write meaningful commit messages following conventional commits
 - Include tests for new features
 - Update documentation as needed
-
-### Pull Request Process
-
-1. Ensure all tests pass
-2. Update the README.md with details of changes if applicable
-3. Request review from at least one maintainer
-4. Merge after approval
 
 ## Environment Configuration
 
@@ -135,49 +107,4 @@ The application will be available at `http://localhost:5173`
    - `VITE_GITHUB_API_TOKEN`: Your GitHub Personal Access Token
    - `VITE_API_BASE_URL`: GitHub API base URL (default: https://api.github.com)
    - `VITE_NODE_ENV`: Environment (development/production)
-
-### GitHub Deployment
-For deploying to GitHub Pages or using GitHub Actions:
-
-1. Go to your GitHub repository settings
-2. Navigate to "Secrets and variables" → "Actions"
-3. Add the following repository secrets:
-   - `GITHUB_TOKEN`: Automatically provided by GitHub
-   - `VITE_GITHUB_API_TOKEN`: Your GitHub Personal Access Token
-   
-Example GitHub Actions workflow for deployment:
-```yaml
-name: Deploy
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-          
-      - name: Install Dependencies
-        run: yarn install
-        
-      - name: Build
-        env:
-          VITE_GITHUB_API_TOKEN: ${{ secrets.VITE_GITHUB_API_TOKEN }}
-          VITE_NODE_ENV: production
-        run: yarn build
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
 
