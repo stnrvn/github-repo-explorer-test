@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -127,7 +127,17 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -171,11 +181,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -232,37 +252,47 @@ export const SearchResults = () =&gt; {
 &nbsp;
   return (
     &lt;div className="mt-4"&gt;
-      &lt;div className="bg-gray-900 rounded-lg divide-y divide-gray-700/50"&gt;
-        {users.map((user: GitHubUser) =&gt; (
-          &lt;button
-            key={user.id}
-            className={`w-full flex items-center p-4 transition-colors text-left focus:outline-none focus:ring-0 focus-visible:ring-0 focus:border-0 hover:border-0 border-0 ring-0 ${
-              selectedUser?.id === user.id ? 'bg-gray-800' : 'bg-gray-800/50'
-            } hover:bg-gray-800`}
-            onClick={() =&gt; dispatch(selectUser(user))}
-          &gt;
-            &lt;img
-              src={user.avatar_url}
-              alt={`${user.login}'s avatar`}
-              className="h-10 w-10 rounded-full"
-            /&gt;
-            &lt;div className="ml-4"&gt;
-              &lt;div className="font-medium text-white"&gt;{user.login}&lt;/div&gt;
-              &lt;div className="text-sm text-gray-400"&gt;View repositories&lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/button&gt;
-        ))}
+      &lt;div className="bg-gray-900 divide-y divide-gray-700/50"&gt;
+        {users.map((user: GitHubUser, index: number) =&gt; {
+          const isFirst = index === 0;
+          const isLast = index === users.length - 1;
+          const roundedClass = isFirst
+            ? 'rounded-t-lg'
+            : <span class="branch-1 cbranch-no" title="branch not covered" >isLast</span>
+            ? 'rounded-b-lg'
+            : '';
+          return (
+            &lt;button
+              key={user.id}
+              className={`w-full flex items-center p-4 transition-colors text-left focus:outline-none focus:ring-0 focus-visible:ring-0 focus:border-0 hover:border-0 border-0 ring-0 rounded-none ${roundedClass} ${
+                selectedUser?.id === user.id ? 'bg-gray-800' : 'bg-gray-800/50'
+              } hover:bg-gray-800`}
+              onClick={() =&gt; dispatch(selectUser(user))}
+            &gt;
+              &lt;img
+                src={user.avatar_url}
+                alt={`${user.login}'s avatar`}
+                className="h-10 w-10 rounded-full"
+              /&gt;
+              &lt;div className="ml-4"&gt;
+                &lt;div className="font-medium text-white"&gt;{user.login}&lt;/div&gt;
+                &lt;div className="text-sm text-gray-400"&gt;View repositories&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/button&gt;
+          );
+        })}
       &lt;/div&gt;
     &lt;/div&gt;
   );
-}; </pre></td></tr></table></pre>
+};
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-05T19:35:31.148Z
+                at 2025-03-06T02:12:37.811Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
